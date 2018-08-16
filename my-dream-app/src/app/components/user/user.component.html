@@ -4,6 +4,41 @@
 <p>Address: {{address.street}}, {{address.city}}, {{address.state}}</p>
 <h3>Hobbies</h3>
 <ul>
-  <li *ngFor="let hobby of hobbies">{{hobby}}</li>
+
+  <h3>Edit User</h3>
+  <form>
+    <div>
+      <label for="name">Name:</label><br>
+      <input type="text" [(ngModel)]="name" name="name">
+    </div>
+    <div>
+        <label for="name">Age:</label><br>
+        <input type="text" [(ngModel)]="age" name="age">
+      </div>
+      <div>
+          <label for="name">Street:</label><br>
+          <input type="text" [(ngModel)]="address.street" name="address.street">
+        </div>
+        <div>
+            <label for="name">City:</label><br>
+            <input type="text" [(ngModel)]="address.city" name="address.city">
+          </div>
+          <div>
+              <label for="name">state:</label><br>
+              <input type="text" [(ngModel)]="address.state" name="address.state">
+            </div>
+  </form>
+  <br>
+  <li *ngFor="let hobby of hobbies">{{hobby}}<button (click)="deleteHobby(hobby)">X</button></li>
+  
 </ul>
+<form (submit)="addHobby(hobby.value)">
+  <div>
+    <label for="hobby">Hobby:</label>
+    <input type="text" #hobby>
+  </div>
+</form>
+<br>
+<br>
+<button (click)="onClick()">click Me</button>
 
